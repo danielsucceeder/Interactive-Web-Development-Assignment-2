@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individual Assignment #2 - Daniel NIYOMUGENGA (225034400)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="top-navbar">
+    <div class="nav-container">
+      <div class="brand-section">
+        <span class="brand-badge">JS EXERCISES</span>
+        <span class="brand-title">Interactive Web Development #2</span>
+      </div>
+
+      <div class="nav-controls">
+        <div class="nav-dropdown-group">
+          <label for="questionNav" class="nav-label">Jump to Question:</label>
+          <select id="questionNav" class="nav-select" title="Select a question to visit">
+            <option value="" selected disabled>-- Select Question (1 - 50) --</option>
+            <optgroup label="Section 1: Arrays (1 - 10)">
+              <option value="q1">Q1: Sum of 20 numbers</option>
+              <option value="q2">Q2: Largest number in 20 numbers</option>
+              <option value="q3">Q3: Sort 20 numbers ascending</option>
+              <option value="q4">Q4: Reverse array of 20 numbers</option>
+              <option value="q5">Q5: Return only even numbers</option>
+              <option value="q6">Q6: Return only odd numbers</option>
+              <option value="q7">Q7: Average of 20 numbers</option>
+              <option value="q8">Q8: Remove duplicates from 20 numbers</option>
+              <option value="q9">Q9: Median value of 20 numbers</option>
+              <option value="q10">Q10: Multiply 20 numbers by 2</option>
+            </optgroup>
+            <optgroup label="Section 2: Arrays of Strings (11 - 20)">
+              <option value="q11">Q11: Print 20 names on new line</option>
+              <option value="q12">Q12: Sort 20 names alphabetically</option>
+              <option value="q13">Q13: Check if name exists (true/false)</option>
+              <option value="q14">Q14: Longest name in 20 names</option>
+              <option value="q15">Q15: Names starting with specific letter</option>
+              <option value="q16">Q16: Convert 20 names to uppercase</option>
+              <option value="q17">Q17: Remove specific name</option>
+              <option value="q18">Q18: Count names containing letter 'a'</option>
+              <option value="q19">Q19: Concatenate names with commas</option>
+              <option value="q20">Q20: Reverse order of 20 names</option>
+            </optgroup>
+            <optgroup label="Section 3: Objects (21 - 30)">
+              <option value="q21">Q21: Person object representation</option>
+              <option value="q22">Q22: Formatted string of person</option>
+              <option value="q23">Q23: Add new property to object</option>
+              <option value="q24">Q24: Remove property from object</option>
+              <option value="q25">Q25: List all properties and values</option>
+              <option value="q26">Q26: Merge two objects into one</option>
+              <option value="q27">Q27: Check if property exists</option>
+              <option value="q28">Q28: Clone object without reference</option>
+              <option value="q29">Q29: Loop array of objects for property</option>
+              <option value="q30">Q30: Update property based on input</option>
+            </optgroup>
+            <optgroup label="Section 4: Strings (31 - 40)">
+              <option value="q31">Q31: Reverse a string</option>
+              <option value="q32">Q32: Count number of vowels</option>
+              <option value="q33">Q33: Uppercase without built-in methods</option>
+              <option value="q34">Q34: String length without .length</option>
+              <option value="q35">Q35: Replace spaces with hyphens</option>
+              <option value="q36">Q36: Extract first 10 characters</option>
+              <option value="q37">Q37: Find and replace a word</option>
+              <option value="q38">Q38: Split string into words array</option>
+              <option value="q39">Q39: Remove all numbers from string</option>
+              <option value="q40">Q40: Insert string starting at position 7</option>
+            </optgroup>
+            <optgroup label="Section 5: DOM Manipulation (41 - 50)">
+              <option value="q41">Q41: Change background color on click</option>
+              <option value="q42">Q42: Hide HTML element on click</option>
+              <option value="q43">Q43: Create & append paragraph to body</option>
+              <option value="q44">Q44: Remove list items from UL</option>
+              <option value="q45">Q45: Change text content of element</option>
+              <option value="q46">Q46: Toggle CSS class on element</option>
+              <option value="q47">Q47: Count number of divs on webpage</option>
+              <option value="q48">Q48: Display input value in paragraph</option>
+              <option value="q49">Q49: Create 3x3 table with numbers</option>
+              <option value="q50">Q50: Validate form (name, email, pass)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <input type="text" id="searchQuestions" class="search-input" placeholder="Search questions..." aria-label="Search questions">
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">🌙</button>
+      </div>
+    </div>
+
+    <!-- Category filter chips -->
+    <div class="category-filter-bar">
+      <button class="filter-chip active" data-category="all">All (50)</button>
+      <button class="filter-chip" data-category="arrays">1. Arrays (Q1-10)</button>
+      <button class="filter-chip" data-category="string-arrays">2. String Arrays (Q11-20)</button>
+      <button class="filter-chip" data-category="objects">3. Objects (Q21-30)</button>
+      <button class="filter-chip" data-category="strings">4. Strings (Q31-40)</button>
+      <button class="filter-chip" data-category="dom">5. DOM Manipulation (Q41-50)</button>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+
+    <!-- Hero Header with strictly required H1 -->
+    <section class="assignment-hero">
+      <div class="hero-glow"></div>
+      <!-- MANDATORY H1 as specified in Assignment Guidelines -->
+      <h1>Individual Assignment #2 for Daniel NIYOMUGENGA [225034400] on Interactive web development</h1>
+      <p style="color: var(--text-secondary); font-size: 1.02rem; max-width: 820px;">
+        Comprehensive showcase of 50 practical JavaScript exercises covering arrays, objects, string manipulations, and interactive DOM methods. Each question includes its pre-computed answer, clear instructions on interactivity, live test controls, and inspectable source code.
+      </p>
+
+      <div class="hero-meta-grid">
+        <div class="hero-meta-item">
+          <div class="meta-label">Student Name</div>
+          <div class="meta-value">Daniel NIYOMUGENGA</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">Registration Number</div>
+          <div class="meta-value">225034400</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">Course Module</div>
+          <div class="meta-value">Interactive Web Development</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="meta-label">Duration & Window</div>
+          <div class="meta-value">27th Oct – 3rd Nov 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 1: ARRAYS (QUESTIONS 1 - 10)
+         ========================================================================= -->
+    <div class="section-divider">
+      <h3>Section 1: Arrays</h3>
+      <span class="section-counter-badge">Questions 1 to 10</span>
+    </div>
+
+    <!-- Question 1 -->
+    <article class="question-card" id="q1" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q01</span>
+        <h2>1. Create an array of 20 numbers and write a function to find the sum of all numbers.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The sum of all 20 numbers in the array [12, 45, 7, 23, 56, 89, 34, 2, 78, 90, 12, 43, 67, 88, 5, 7, 61, 74, 19, 50] is <strong>862</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Calculate Sum"</strong> to run the reducer function on the default 20 numbers, or enter custom comma-separated numbers in the input box.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ1" placeholder="e.g. 12, 45, 7, 23, 56..." style="flex:1; min-width:240px;">
+          <button id="btnQ1" class="btn btn-primary">Calculate Sum</button>
+        </div>
+        <div id="outQ1" class="interactive-output">Click button above to test function...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function findSum(arr) {
+  return arr.reduce((acc, curr) => acc + curr, 0);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 2 -->
+    <article class="question-card" id="q2" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q02</span>
+        <h2>2. Write a function to find the largest number in an array of 20 numbers.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The largest number in the array of 20 numbers is <strong>90</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Find Largest"</strong> to compute using Math.max(...arr), or supply your own comma-separated list of numbers.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ2" placeholder="e.g. 10, 80, 4, 99, 15..." style="flex:1; min-width:240px;">
+          <button id="btnQ2" class="btn btn-primary">Find Largest</button>
+        </div>
+        <div id="outQ2" class="interactive-output">Click button above to test function...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function findLargest(arr) {
+  return Math.max(...arr);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 3 -->
+    <article class="question-card" id="q3" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q03</span>
+        <h2>3. Write a function to sort an array of 20 numbers in ascending order.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The array sorted in ascending order is: <strong>[2, 5, 7, 7, 12, 12, 19, 23, 34, 43, 45, 50, 56, 61, 67, 74, 78, 88, 89, 90]</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Sort Ascending"</strong> to trigger the numeric compare sort algorithm without mutating the original source array.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ3" class="btn btn-primary">Sort Ascending</button>
+        </div>
+        <div id="outQ3" class="interactive-output">Click button above to execute sort...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function sortAscending(arr) {
+  return [...arr].sort((a, b) => a - b);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 4 -->
+    <article class="question-card" id="q4" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q04</span>
+        <h2>4. Write a function to reverse an array of 20 numbers.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The reversed array of 20 numbers is: <strong>[50, 19, 74, 61, 7, 5, 88, 67, 43, 12, 90, 78, 2, 34, 89, 56, 23, 7, 45, 12]</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Reverse Array"</strong> to invert the sequence order of the 20 numbers.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ4" class="btn btn-primary">Reverse Array</button>
+        </div>
+        <div id="outQ4" class="interactive-output">Click button above to reverse array...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function reverseArray(arr) {
+  return [...arr].reverse();
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 5 -->
+    <article class="question-card" id="q5" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q05</span>
+        <h2>5. Write a function that takes an array of 20 numbers and returns only even numbers.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The even numbers filtered from the array are: <strong>[12, 56, 34, 2, 78, 90, 12, 88, 74, 50]</strong> (total 10 even numbers).
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Filter Even Numbers"</strong> to run a filter test checking <code>num % 2 === 0</code>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ5" class="btn btn-primary">Filter Even Numbers</button>
+        </div>
+        <div id="outQ5" class="interactive-output">Click button above to filter even numbers...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function getEvenNumbers(arr) {
+  return arr.filter(n => n % 2 === 0);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 6 -->
+    <article class="question-card" id="q6" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q06</span>
+        <h2>6. Write a function that takes an array of 20 numbers and returns only odd numbers.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The odd numbers filtered from the array are: <strong>[45, 7, 23, 89, 43, 67, 5, 7, 61, 19]</strong> (total 10 odd numbers).
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Filter Odd Numbers"</strong> to run a filter test checking <code>Math.abs(num % 2) === 1</code>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ6" class="btn btn-primary">Filter Odd Numbers</button>
+        </div>
+        <div id="outQ6" class="interactive-output">Click button above to filter odd numbers...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function getOddNumbers(arr) {
+  return arr.filter(n => Math.abs(n % 2) === 1);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 7 -->
+    <article class="question-card" id="q7" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q07</span>
+        <h2>7. Write a function that takes an array of 20 numbers and returns the average of those numbers.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The average of the 20 numbers is <strong>43.10</strong> (calculated as sum 862 divided by 20 elements).
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Calculate Average"</strong> to compute the sum and divide by array length.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ7" class="btn btn-primary">Calculate Average</button>
+        </div>
+        <div id="outQ7" class="interactive-output">Click button above to compute average...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function calculateAverage(arr) {
+  const sum = arr.reduce((a, b) => a + b, 0);
+  return Number((sum / arr.length).toFixed(2));
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 8 -->
+    <article class="question-card" id="q8" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q08</span>
+        <h2>8. Write a function to remove duplicates from an array of 20 numbers.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        After removing duplicates (numbers 12 and 7 appeared twice), the array has 18 unique elements: <strong>[12, 45, 7, 23, 56, 89, 34, 2, 78, 90, 43, 67, 88, 5, 61, 74, 19, 50]</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Remove Duplicates"</strong> to see the unique elements filtered using the ES6 Set data structure.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ8" class="btn btn-primary">Remove Duplicates</button>
+        </div>
+        <div id="outQ8" class="interactive-output">Click button above to eliminate duplicate values...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 9 -->
+    <article class="question-card" id="q9" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q09</span>
+        <h2>9. Write a function that takes an array of 20 numbers and returns the median value.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The median value of the sorted 20 numbers is <strong>44.00</strong> (the average of the 10th number 43 and the 11th number 45).
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Calculate Median"</strong> to sort the array and find the middle values.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ9" class="btn btn-primary">Calculate Median</button>
+        </div>
+        <div id="outQ9" class="interactive-output">Click button above to compute median...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function findMedian(arr) {
+  const sorted = [...arr].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  if (sorted.length % 2 !== 0) return sorted[mid];
+  return Number(((sorted[mid - 1] + sorted[mid]) / 2).toFixed(2));
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 10 -->
+    <article class="question-card" id="q10" data-category="arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q10</span>
+        <h2>10. Write a function to multiply all elements in an array of 20 numbers by 2.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Each element multiplied by 2 yields: <strong>[24, 90, 14, 46, 112, 178, 68, 4, 156, 180, 24, 86, 134, 176, 10, 14, 122, 148, 38, 100]</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Multiply by 2"</strong> to map over every element and double its value.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ10" class="btn btn-primary">Multiply by 2</button>
+        </div>
+        <div id="outQ10" class="interactive-output">Click button above to multiply elements by 2...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function multiplyByTwo(arr) {
+  return arr.map(n => n * 2);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- =========================================================================
+         SECTION 2: ARRAYS OF STRINGS (NAMES) (QUESTIONS 11 - 20)
+         ========================================================================= -->
+    <div class="section-divider">
+      <h3>Section 2: Arrays of Strings (Names)</h3>
+      <span class="section-counter-badge">Questions 11 to 20</span>
+    </div>
+
+    <!-- Question 11 -->
+    <article class="question-card" id="q11" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q11</span>
+        <h2>11. Create an array of 20 names and write a function to print each name on a new line.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The 20 names printed with new line breaks: Alice, Bob, Charlie, David, Emma, Frank, Grace, Hannah, Isaac, Jack, Katherine, Liam, Mia, Noah, Olivia, Peter, Quinn, Rachel, Samuel, Tina.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Print Names on New Line"</strong> to format the array joined by new-line (\n) characters.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ11" class="btn btn-primary">Print Names on New Line</button>
+        </div>
+        <div id="outQ11" class="interactive-output">Click button above to display names on separate lines...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function printNamesOnNewLine(arr) {
+  return arr.join("\n");
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 12 -->
+    <article class="question-card" id="q12" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q12</span>
+        <h2>12. Write a function to sort an array of 20 names alphabetically.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The 20 names sorted alphabetically: <strong>[Alice, Bob, Charlie, David, Emma, Frank, Grace, Hannah, Isaac, Jack, Katherine, Liam, Mia, Noah, Olivia, Peter, Quinn, Rachel, Samuel, Tina]</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Sort Alphabetically"</strong> to run JavaScript's <code>localeCompare()</code> string sort.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ12" class="btn btn-primary">Sort Alphabetically</button>
+        </div>
+        <div id="outQ12" class="interactive-output">Click button above to sort names...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function sortNamesAlphabetically(arr) {
+  return [...arr].sort((a, b) => a.localeCompare(b));
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 13 -->
+    <article class="question-card" id="q13" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q13</span>
+        <h2>13. Write a function that checks if a specific name exists in an array of 20 names and returns true or false.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Checking if "Alice" exists returns <strong>true</strong>; checking for a name not in the list (e.g. "Daniel") returns <strong>false</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Enter any name in the input box below (case-insensitive) and click <strong>"Check Existence"</strong> to get a true or false boolean result.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ13" value="Emma" placeholder="Type a name (e.g. Emma, Bob, Daniel)...">
+          <button id="btnQ13" class="btn btn-primary">Check Existence</button>
+        </div>
+        <div id="outQ13" class="interactive-output">Result will appear here...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function checkNameExists(arr, nameToCheck) {
+  const target = nameToCheck.trim().toLowerCase();
+  return arr.some(name => name.toLowerCase() === target);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 14 -->
+    <article class="question-card" id="q14" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q14</span>
+        <h2>14. Write a function to find the longest name in an array of 20 names.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The longest name in the array is <strong>"Katherine"</strong> with <strong>9 letters</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Find Longest Name"</strong> to scan lengths using Array.reduce().</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ14" class="btn btn-primary">Find Longest Name</button>
+        </div>
+        <div id="outQ14" class="interactive-output">Click button above to evaluate longest name...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function findLongestName(arr) {
+  return arr.reduce((longest, current) => 
+    current.length > longest.length ? current : longest, arr[0]);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 15 -->
+    <article class="question-card" id="q15" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q15</span>
+        <h2>15. Write a function to find names that start with a specific letter in an array of 20 names.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Names starting with letter "A": <strong>["Alice"]</strong>. (Interactive search below supports any letter).
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type a starting letter (e.g. M, D, S, K) into the input box and click <strong>"Filter by Letter"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ15" value="M" maxlength="1" style="width: 70px; text-align: center;">
+          <button id="btnQ15" class="btn btn-primary">Filter by Letter</button>
+        </div>
+        <div id="outQ15" class="interactive-output">Click button above to find names matching letter...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function findNamesByStartingLetter(arr, letter) {
+  const char = letter.trim().charAt(0).toLowerCase();
+  return arr.filter(name => name.toLowerCase().startsWith(char));
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 16 -->
+    <article class="question-card" id="q16" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q16</span>
+        <h2>16. Write a function to convert all names to uppercase in an array of 20 names.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        All names converted to uppercase: <strong>[ALICE, BOB, CHARLIE, DAVID, EMMA, FRANK, GRACE, HANNAH, ISAAC, JACK, KATHERINE, LIAM, MIA, NOAH, OLIVIA, PETER, QUINN, RACHEL, SAMUEL, TINA]</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Convert to Uppercase"</strong> to apply the mapping transformation to each name string.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ16" class="btn btn-primary">Convert to Uppercase</button>
+        </div>
+        <div id="outQ16" class="interactive-output">Click button above to convert array to uppercase...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function convertNamesToUppercase(arr) {
+  return arr.map(name => name.toUpperCase());
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 17 -->
+    <article class="question-card" id="q17" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q17</span>
+        <h2>17. Write a function to remove a specific name from an array of 20 names.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Removing "Alice" from the array produces a list of 19 names: [Bob, Charlie, David, Emma, Frank, Grace, Hannah, Isaac, Jack, Katherine, Liam, Mia, Noah, Olivia, Peter, Quinn, Rachel, Samuel, Tina].
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Enter any name to remove (e.g. "Jack" or "Mia") and click <strong>"Remove Name"</strong> to see the filtered array.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ17" value="Bob" placeholder="Name to remove...">
+          <button id="btnQ17" class="btn btn-primary">Remove Name</button>
+        </div>
+        <div id="outQ17" class="interactive-output">Click button above to test removal...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function removeNameFromArray(arr, nameToRemove) {
+  const target = nameToRemove.trim().toLowerCase();
+  return arr.filter(name => name.toLowerCase() !== target);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 18 -->
+    <article class="question-card" id="q18" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q18</span>
+        <h2>18. Write a function to count how many names contain the letter "a" in an array of 20 names.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        There are <strong>17 names</strong> containing the letter "a" (or "A") in the array of 20 names (Alice, Charlie, David, Emma, Frank, Grace, Hannah, Isaac, Jack, Katherine, Liam, Mia, Noah, Rachel, Samuel, Tina).
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Count Letter 'a'"</strong> to execute the case-insensitive regular expression count.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ18" class="btn btn-primary">Count Letter 'a'</button>
+        </div>
+        <div id="outQ18" class="interactive-output">Click button above to calculate count...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function countNamesContainingA(arr) {
+  return arr.filter(name => /a/i.test(name)).length;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 19 -->
+    <article class="question-card" id="q19" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q19</span>
+        <h2>19. Write a function to concatenate all names in an array of 20 names into a single string, separated by commas.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Concatenated string: <strong>"Alice, Bob, Charlie, David, Emma, Frank, Grace, Hannah, Isaac, Jack, Katherine, Liam, Mia, Noah, Olivia, Peter, Quinn, Rachel, Samuel, Tina"</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Concatenate with Commas"</strong> to join all 20 elements into one clean string.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ19" class="btn btn-primary">Concatenate with Commas</button>
+        </div>
+        <div id="outQ19" class="interactive-output">Click button above to concatenate names...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function concatenateNamesWithCommas(arr) {
+  return arr.join(", ");
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 20 -->
+    <article class="question-card" id="q20" data-category="string-arrays">
+      <div class="question-header">
+        <span class="question-number-badge">Q20</span>
+        <h2>20. Write a function to reverse the order of an array of 20 names.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Reversed names order: <strong>[Tina, Samuel, Rachel, Quinn, Peter, Olivia, Noah, Mia, Liam, Katherine, Jack, Isaac, Hannah, Grace, Frank, Emma, David, Charlie, Bob, Alice]</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Reverse Names Order"</strong> to invert the sequence order of the string array.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ20" class="btn btn-primary">Reverse Names Order</button>
+        </div>
+        <div id="outQ20" class="interactive-output">Click button above to reverse names...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function reverseNamesOrder(arr) {
+  return [...arr].reverse();
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- =========================================================================
+         SECTION 3: OBJECTS (QUESTIONS 21 - 30)
+         ========================================================================= -->
+    <div class="section-divider">
+      <h3>Section 3: Objects</h3>
+      <span class="section-counter-badge">Questions 21 to 30</span>
+    </div>
+
+    <!-- Question 21 -->
+    <article class="question-card" id="q21" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q21</span>
+        <h2>21. Create a JavaScript object that represents a person (with properties: name, age, and occupation).</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Created person object: <strong>{ name: "Daniel NIYOMUGENGA", age: 21, occupation: "Software Developer" }</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Inspect Person Object"</strong> to view the JSON representation of the created object.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ21" class="btn btn-primary">Inspect Person Object</button>
+        </div>
+        <div id="outQ21" class="interactive-output">Click button above to inspect object...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function createPersonObject(name = "Daniel NIYOMUGENGA", age = 21, occupation = "Software Developer") {
+  return {
+    name: name,
+    age: age,
+    occupation: occupation
+  };
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 22 -->
+    <article class="question-card" id="q22" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q22</span>
+        <h2>22. Write a function that takes a person object and returns a formatted string with their information.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Formatted string: <strong>"Name: Daniel NIYOMUGENGA, Age: 21, Occupation: Software Developer"</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Format Person Info"</strong> to interpolate object properties into a human-readable sentence.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ22" class="btn btn-primary">Format Person Info</button>
+        </div>
+        <div id="outQ22" class="interactive-output">Click button above to format person data...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function formatPersonInfo(person) {
+  return `Name: ${person.name}, Age: ${person.age}, Occupation: ${person.occupation}`;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 23 -->
+    <article class="question-card" id="q23" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q23</span>
+        <h2>23. Write a function to add a new property to an existing object.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Adding the property "country: Rwanda" to the object augments it to: { name: "Daniel NIYOMUGENGA", age: 21, occupation: "Software Developer", country: "Rwanda" }.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type a property key and value below (e.g., key: "email", value: "daniel@example.com") and click <strong>"Add Property"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ23Key" value="country" placeholder="Property key (e.g. country)" style="width: 140px;">
+          <input type="text" id="inputQ23Val" value="Rwanda" placeholder="Value (e.g. Rwanda)" style="width: 140px;">
+          <button id="btnQ23" class="btn btn-primary">Add Property</button>
+        </div>
+        <div id="outQ23" class="interactive-output">Click button above to add property...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function addPropertyToObject(obj, key, value) {
+  obj[key] = value;
+  return obj;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 24 -->
+    <article class="question-card" id="q24" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q24</span>
+        <h2>24. Write a function to remove a property from an existing object.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Removing property "occupation" using the JavaScript delete operator removes the field from the person object.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Specify which property key to delete from the object and click <strong>"Remove Property"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ24" value="country" placeholder="Property to remove...">
+          <button id="btnQ24" class="btn btn-danger">Remove Property</button>
+        </div>
+        <div id="outQ24" class="interactive-output">Click button above to test removal...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function removePropertyFromObject(obj, key) {
+  if (obj && Object.prototype.hasOwnProperty.call(obj, key)) {
+    delete obj[key];
+  }
+  return obj;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 25 -->
+    <article class="question-card" id="q25" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q25</span>
+        <h2>25. Write a function to list all properties and values of a JavaScript object.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Listing properties and values: <strong>name: "Daniel NIYOMUGENGA" | age: 21 | occupation: "Software Developer"</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"List Properties & Values"</strong> to iterate through <code>Object.entries()</code>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ25" class="btn btn-primary">List Properties & Values</button>
+        </div>
+        <div id="outQ25" class="interactive-output">Click button above to list keys and values...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function listPropertiesAndValues(obj) {
+  return Object.entries(obj).map(([key, val]) => `${key}: ${JSON.stringify(val)}`);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 26 -->
+    <article class="question-card" id="q26" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q26</span>
+        <h2>26. Write a function to merge two objects into one.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Merging { name: "Daniel NIYOMUGENGA", regNumber: 225034400 } and { course: "Interactive Web Development", assignment: 2, status: "Submitted" } yields a combined object with all merged keys.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Merge Two Objects"</strong> to combine them using the spread syntax <code>{ ...obj1, ...obj2 }</code>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ26" class="btn btn-primary">Merge Two Objects</button>
+        </div>
+        <div id="outQ26" class="interactive-output">Click button above to merge objects...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function mergeTwoObjects(obj1, obj2) {
+  return { ...obj1, ...obj2 };
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 27 -->
+    <article class="question-card" id="q27" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q27</span>
+        <h2>27. Write a function to check if a property exists in an object.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Checking for property "name" returns <strong>true</strong>, while checking for non-existent property "salary" returns <strong>false</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type a property name into the input field below and click <strong>"Check Property"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ27" value="name" placeholder="Property name (e.g. name, age, salary)...">
+          <button id="btnQ27" class="btn btn-primary">Check Property</button>
+        </div>
+        <div id="outQ27" class="interactive-output">Click button above to check existence...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function checkPropertyExists(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 28 -->
+    <article class="question-card" id="q28" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q28</span>
+        <h2>28. Write a function to clone an object without referencing the original one.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Cloning creates an isolated deep copy in memory: mutating properties in the cloned object has zero effect on the original object.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Clone Object & Verify"</strong> to test deep cloning and verify independence between instances.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ28" class="btn btn-primary">Clone Object & Verify</button>
+        </div>
+        <div id="outQ28" class="interactive-output">Click button above to clone and verify independence...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function cloneObjectWithoutReference(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 29 -->
+    <article class="question-card" id="q29" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q29</span>
+        <h2>29. Write a function that loops through an array of objects and prints a specific property of each object.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Looping through an array of 4 people objects and extracting "name" prints: <strong>Daniel NIYOMUGENGA, Alice Keza, Jean Paul, Claire Mugabo</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Select which property to extract (e.g. name or occupation) and click <strong>"Extract Property"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <select id="selectQ29" class="input-select">
+            <option value="name">Extract "name"</option>
+            <option value="occupation">Extract "occupation"</option>
+          </select>
+          <button id="btnQ29" class="btn btn-primary">Extract Property</button>
+        </div>
+        <div id="outQ29" class="interactive-output">Click button above to loop through array of objects...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function printPropertyFromObjects(arr, prop) {
+  return arr.map((item, index) => 
+    `Item ${index + 1} -> ${prop}: ${item[prop] !== undefined ? item[prop] : "Not found"}`
+  );
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 30 -->
+    <article class="question-card" id="q30" data-category="objects">
+      <div class="question-header">
+        <span class="question-number-badge">Q30</span>
+        <h2>30. Write a function that updates a specific property of an object based on user input.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Updating the property "occupation" with new input changes the object dynamically to reflect the user's latest value.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Enter a property name (e.g. "occupation" or "name") and your new value, then click <strong>"Update Property"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ30Prop" value="occupation" placeholder="Property name..." style="width:140px;">
+          <input type="text" id="inputQ30Val" value="Lead Full-Stack Engineer" placeholder="New value..." style="flex:1; min-width:180px;">
+          <button id="btnQ30" class="btn btn-primary">Update Property</button>
+        </div>
+        <div id="outQ30" class="interactive-output">Click button above to apply property update...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function updateObjectProperty(obj, prop, value) {
+  obj[prop] = value;
+  return obj;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- =========================================================================
+         SECTION 4: STRINGS (QUESTIONS 31 - 40)
+         ========================================================================= -->
+    <div class="section-divider">
+      <h3>Section 4: Strings</h3>
+      <span class="section-counter-badge">Questions 31 to 40</span>
+    </div>
+
+    <!-- Question 31 -->
+    <article class="question-card" id="q31" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q31</span>
+        <h2>31. Write a function that takes a string and reverses the string.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Reversing the string "Interactive Web Development" produces: <strong>"tnempoleveD beW evitcaretIn"</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type any custom sentence or word in the input and click <strong>"Reverse String"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ31" value="Interactive Web Development" style="flex:1; min-width:240px;">
+          <button id="btnQ31" class="btn btn-primary">Reverse String</button>
+        </div>
+        <div id="outQ31" class="interactive-output">Click button above to reverse string...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function reverseString(str) {
+  return str.split("").reverse().join("");
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 32 -->
+    <article class="question-card" id="q32" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q32</span>
+        <h2>32. Write a function to count the number of vowels in a given string.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The string "Daniel NIYOMUGENGA" has <strong>8 vowels</strong> (a, i, e, I, O, U, E, A).
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type any text in the input box below and click <strong>"Count Vowels"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ32" value="Daniel NIYOMUGENGA" style="flex:1; min-width:240px;">
+          <button id="btnQ32" class="btn btn-primary">Count Vowels</button>
+        </div>
+        <div id="outQ32" class="interactive-output">Click button above to count vowels...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function countVowels(str) {
+  const match = str.match(/[aeiou]/gi);
+  return match ? match.length : 0;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 33 -->
+    <article class="question-card" id="q33" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q33</span>
+        <h2>33. Write a function to convert a string to uppercase without using built-in methods.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Converting "javascript assignment #2" using ASCII character code offsets yields: <strong>"JAVASCRIPT ASSIGNMENT #2"</strong> (strictly without using .toUpperCase()).
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type lowercase text into the box and click <strong>"Convert to Uppercase"</strong> to see ASCII code manipulation (charCode - 32).</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ33" value="javascript assignment #2" style="flex:1; min-width:240px;">
+          <button id="btnQ33" class="btn btn-primary">Convert to Uppercase</button>
+        </div>
+        <div id="outQ33" class="interactive-output">Click button above to convert without built-in methods...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function convertToUppercaseWithoutBuiltIn(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    const code = str.charCodeAt(i);
+    // Lowercase 'a' (97) to 'z' (122) map to 'A' (65) to 'Z' (90)
+    if (code >= 97 && code <= 122) {
+      result += String.fromCharCode(code - 32);
+    } else {
+      result += str.charAt(i);
+    }
+  }
+  return result;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 34 -->
+    <article class="question-card" id="q34" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q34</span>
+        <h2>34. Write a function to find the length of a string without using .length.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The length of "Daniel NIYOMUGENGA" calculated without using .length is <strong>18 characters</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type any text and click <strong>"Calculate Length"</strong> to verify character iteration via a <code>for...of</code> loop.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ34" value="Daniel NIYOMUGENGA" style="flex:1; min-width:240px;">
+          <button id="btnQ34" class="btn btn-primary">Calculate Length</button>
+        </div>
+        <div id="outQ34" class="interactive-output">Click button above to calculate length...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function findLengthWithoutLength(str) {
+  let count = 0;
+  for (const _char of str) {
+    count++;
+  }
+  return count;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 35 -->
+    <article class="question-card" id="q35" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q35</span>
+        <h2>35. Write a function to replace all spaces with hyphens in a string.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Replacing spaces in "Individual Assignment 2 for Interactive Web Development" produces: <strong>"Individual-Assignment-2-for-Interactive-Web-Development"</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Enter any sentence with spaces and click <strong>"Replace Spaces"</strong> to see all spaces converted to hyphens.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ35" value="Individual Assignment 2 for Interactive Web Development" style="flex:1; min-width:240px;">
+          <button id="btnQ35" class="btn btn-primary">Replace Spaces</button>
+        </div>
+        <div id="outQ35" class="interactive-output">Click button above to replace spaces with hyphens...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function replaceSpacesWithHyphens(str) {
+  return str.replace(/ /g, "-");
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 36 -->
+    <article class="question-card" id="q36" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q36</span>
+        <h2>36. Write a function to extract the first 10 characters from a string.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The first 10 characters of "Interactive Web Development 2026" are: <strong>"Interactiv"</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type a string with 10 or more characters and click <strong>"Extract 10 Characters"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ36" value="Interactive Web Development 2026" style="flex:1; min-width:240px;">
+          <button id="btnQ36" class="btn btn-primary">Extract 10 Characters</button>
+        </div>
+        <div id="outQ36" class="interactive-output">Click button above to extract characters...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function extractFirstTenCharacters(str) {
+  return str.slice(0, 10);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 37 -->
+    <article class="question-card" id="q37" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q37</span>
+        <h2>37. Write a function to find and replace a word in a string.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Finding "Python" and replacing with "JavaScript" in "I love programming in Python!" yields: <strong>"I love programming in JavaScript!"</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Specify the target sentence, the word to find, and replacement word, then click <strong>"Find & Replace"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ37Str" value="I love programming in Python!" style="flex:1; min-width:200px;">
+          <input type="text" id="inputQ37Find" value="Python" style="width:110px;" placeholder="Word to find">
+          <input type="text" id="inputQ37Replace" value="JavaScript" style="width:110px;" placeholder="Replacement">
+          <button id="btnQ37" class="btn btn-primary">Find & Replace</button>
+        </div>
+        <div id="outQ37" class="interactive-output">Click button above to perform find and replace...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function findAndReplaceWord(str, targetWord, replacementWord) {
+  const regex = new RegExp(targetWord, "gi");
+  return str.replace(regex, replacementWord);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 38 -->
+    <article class="question-card" id="q38" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q38</span>
+        <h2>38. Write a function to split a string into an array of words.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Splitting "JavaScript makes the web interactive and dynamic" produces 7 words: <strong>["JavaScript", "makes", "the", "web", "interactive", "and", "dynamic"]</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type a sentence into the input and click <strong>"Split into Words"</strong> to parse words delimited by whitespace.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ38" value="JavaScript makes the web interactive and dynamic" style="flex:1; min-width:240px;">
+          <button id="btnQ38" class="btn btn-primary">Split into Words</button>
+        </div>
+        <div id="outQ38" class="interactive-output">Click button above to split string...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function splitIntoArrayOfWords(str) {
+  return str.trim().split(/\s+/);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 39 -->
+    <article class="question-card" id="q39" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q39</span>
+        <h2>39. Write a function to remove all numbers from a string.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Removing all numbers from "Assignment #2 was published on 27 October 2026 by Reg 225034400" leaves: <strong>"Assignment # was published on  October  by Reg "</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Enter text containing numbers and click <strong>"Strip Numbers"</strong> to sanitize using regular expressions.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ39" value="Assignment #2 was published on 27 October 2026 by Reg 225034400" style="flex:1; min-width:240px;">
+          <button id="btnQ39" class="btn btn-primary">Strip Numbers</button>
+        </div>
+        <div id="outQ39" class="interactive-output">Click button above to strip numeric characters...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function removeAllNumbers(str) {
+  return str.replace(/[0-9]/g, "");
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 40 -->
+    <article class="question-card" id="q40" data-category="strings">
+      <div class="question-header">
+        <span class="question-number-badge">Q40</span>
+        <h2>40. Write a function to insert another string in the existing starting at position 7.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Inserting " to our" into "Welcome Website" starting at position 7 produces: <strong>"Welcome to our Website"</strong>.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Specify the original string and the fragment to insert at index 7, then click <strong>"Insert at Position 7"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ40Orig" value="Welcome Website" style="flex:1; min-width:180px;" placeholder="Original string">
+          <input type="text" id="inputQ40Insert" value=" to our" style="width:140px;" placeholder="String to insert">
+          <button id="btnQ40" class="btn btn-primary">Insert at Position 7</button>
+        </div>
+        <div id="outQ40" class="interactive-output">Click button above to insert string at index 7...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function insertStringAtPosition7(originalStr, strToInsert) {
+  const pos = 7;
+  if (originalStr.length < pos) return originalStr + strToInsert;
+  return originalStr.slice(0, pos) + strToInsert + originalStr.slice(pos);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- =========================================================================
+         SECTION 5: HTML ELEMENTS AND DOM MANIPULATION (QUESTIONS 41 - 50)
+         ========================================================================= -->
+    <div class="section-divider">
+      <h3>Section 5: HTML Elements and DOM Manipulation</h3>
+      <span class="section-counter-badge">Questions 41 to 50</span>
+    </div>
+
+    <!-- Question 41 -->
+    <article class="question-card" id="q41" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q41</span>
+        <h2>41. Write a JavaScript function that changes the background color of a webpage when a button is clicked.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Clicking the button executes <code>changeWebpageBackgroundColor()</code>, directly changing the document's body style background color in real time.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Pick a color from the color picker below and click <strong>"Change Background Color"</strong> to tint the entire web page. Click <strong>"Reset Background"</strong> to return to normal.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="color" id="inputQ41Color" value="#e0f2fe" style="width:50px; height:36px; padding:2px; border-radius:6px; cursor:pointer;">
+          <button id="btnQ41" class="btn btn-primary">Change Background Color</button>
+          <button id="btnResetBg" class="btn btn-secondary">Reset Background</button>
+        </div>
+        <div id="outQ41" class="interactive-output">Select a color and click button above...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function changeWebpageBackgroundColor(color) {
+  document.body.style.backgroundColor = color;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 42 -->
+    <article class="question-card" id="q42" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q42</span>
+        <h2>42. Write a JavaScript function to hide an HTML element when a button is clicked.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Clicking the "Hide Element" button sets <code>element.style.display = 'none'</code>, removing the targeted box from visual rendering.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Look at the green target box below. Click <strong>"Hide Element"</strong> to conceal it, and click <strong>"Restore Element"</strong> to show it again.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div id="demoHideElement" class="hide-target-box" style="margin-bottom:12px;">
+          🎯 <strong>Target Element to Hide:</strong> This element is visible by default. Clicking "Hide Element" will disappear it via DOM manipulation!
+        </div>
+        <div class="controls-row">
+          <button id="btnQ42" class="btn btn-danger">Hide Element</button>
+          <button id="btnShowQ42" class="btn btn-secondary">Restore Element</button>
+        </div>
+        <div id="outQ42" class="interactive-output">Element is currently visible.</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function hideHtmlElement(elementId) {
+  const el = document.getElementById(elementId);
+  if (el) {
+    el.style.display = "none";
+  }
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 43 -->
+    <article class="question-card" id="q43" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q43</span>
+        <h2>43. Write a JavaScript function to create a new paragraph element and append it to the body.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Calling <code>document.createElement('p')</code>, configuring its text, and calling <code>document.body.appendChild()</code> appends a new paragraph node to the DOM.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Create & Append Paragraph"</strong> to dynamically construct a new paragraph node and append it to the DOM container below.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ43" class="btn btn-primary">Create & Append Paragraph</button>
+          <button id="btnClearAppendedQ43" class="btn btn-secondary">Clear Appended</button>
+        </div>
+        <div id="outQ43" class="interactive-output">Appended paragraphs container:</div>
+        <div id="bodyAppendedContainer"></div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function createAndAppendParagraph(text) {
+  const newP = document.createElement("p");
+  newP.className = "appended-p-item";
+  newP.textContent = text;
+  document.body.appendChild(newP);
+  return newP;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 44 -->
+    <article class="question-card" id="q44" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q44</span>
+        <h2>44. Write a JavaScript function to remove all list items from an unordered list.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Invoking <code>ul.innerHTML = ''</code> or removing child nodes deletes all &lt;li&gt; items from the unordered list.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> View the list items below. Click <strong>"Remove All List Items"</strong> to wipe the list, and click <strong>"Restore List"</strong> to re-populate them.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <ul id="demoListQ44" class="interactive-ul">
+          <li>HTML5 Structure & Semantic Layout</li>
+          <li>CSS3 Custom Properties & Responsive Design</li>
+          <li>Vanilla JavaScript ES6+ Modern Architecture</li>
+        </ul>
+        <div class="controls-row">
+          <button id="btnQ44" class="btn btn-danger">Remove All List Items</button>
+          <button id="btnResetQ44" class="btn btn-secondary">Restore List</button>
+        </div>
+        <div id="outQ44" class="interactive-output">List contains 3 items.</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function removeAllListItems(listId) {
+  const ul = document.getElementById(listId);
+  if (ul) {
+    ul.innerHTML = "";
+  }
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 45 -->
+    <article class="question-card" id="q45" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q45</span>
+        <h2>45. Write a JavaScript function to change the text content of a specific HTML element.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Assigning a new string to <code>element.textContent</code> instantly mutates the displayed text content of the target HTML element.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type your new text into the input field and click <strong>"Change Text Content"</strong> to watch the target badge below update immediately.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div style="margin-bottom:12px;">
+          Target Element: <span id="targetElementQ45" class="output-tag" style="font-weight:700; color:var(--accent-primary);">Original Element Text Content</span>
+        </div>
+        <div class="controls-row">
+          <input type="text" id="inputQ45" value="Updated text content via JavaScript DOM manipulation!" style="flex:1; min-width:240px;">
+          <button id="btnQ45" class="btn btn-primary">Change Text Content</button>
+        </div>
+        <div id="outQ45" class="interactive-output">Ready to update target element.</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function changeTextContent(elementId, newText) {
+  const target = document.getElementById(elementId);
+  if (target) {
+    target.textContent = newText;
+  }
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 46 -->
+    <article class="question-card" id="q46" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q46</span>
+        <h2>46. Write a JavaScript function to toggle a CSS class on an HTML element.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Using <code>element.classList.toggle('active-custom-class')</code> alternates between adding and removing the class on each button click.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Toggle CSS Class"</strong> to toggle the glowing gradient accent class on the demo box below.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div id="demoBoxQ46" class="sample-toggle-box" style="margin-bottom:12px;">
+          ✨ <strong>Class Target Box:</strong> Watch this card toggle between standard styling and an active glowing gradient!
+        </div>
+        <div class="controls-row">
+          <button id="btnQ46" class="btn btn-primary">Toggle CSS Class</button>
+        </div>
+        <div id="outQ46" class="interactive-output">Class state: Normal (disabled).</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function toggleCssClass(elementId, className) {
+  const el = document.getElementById(elementId);
+  if (el) {
+    el.classList.toggle(className);
+    return el.classList.contains(className);
+  }
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 47 -->
+    <article class="question-card" id="q47" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q47</span>
+        <h2>47. Write a JavaScript function to count the number of divs on a webpage.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Executing <code>document.querySelectorAll('div').length</code> scans the entire DOM tree and counts all &lt;div&gt; elements on the current webpage.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Click <strong>"Count All &lt;div&gt; Elements"</strong> to live-count the total number of div elements on this page.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <button id="btnQ47" class="btn btn-primary">Count All &lt;div&gt; Elements</button>
+        </div>
+        <div id="outQ47" class="interactive-output">Click button above to count divs across webpage...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function countDivsOnWebpage() {
+  const totalDivs = document.querySelectorAll("div").length;
+  return totalDivs;
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 48 -->
+    <article class="question-card" id="q48" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q48</span>
+        <h2>48. Write a JavaScript function to get the value of a text input field and display it in a paragraph.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        Reading <code>input.value</code> and assigning it to <code>paragraph.textContent</code> renders the input string directly into the target paragraph.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Type into the input box below (mirrors in real-time) or click <strong>"Submit to Paragraph"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="text" id="inputQ48" placeholder="Type anything here..." value="Hello from Daniel NIYOMUGENGA!" style="flex:1; min-width:240px;">
+          <button id="btnQ48" class="btn btn-primary">Submit to Paragraph</button>
+        </div>
+        <div class="interactive-output" style="margin-top:10px;">
+          <p id="displayParagraphQ48" style="margin:0; font-weight:600; color:var(--accent-primary);">Entered value: "Hello from Daniel NIYOMUGENGA!"</p>
+        </div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function getInputValueAndDisplay(inputId, paragraphId) {
+  const input = document.getElementById(inputId);
+  const targetP = document.getElementById(paragraphId);
+  if (input && targetP) {
+    targetP.textContent = `Entered value: "${input.value}"`;
+  }
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 49 -->
+    <article class="question-card" id="q49" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q49</span>
+        <h2>49. Write a JavaScript function to create a table with 3 rows and 3 columns, and populate it with numbers of your choice.</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The function creates a &lt;table&gt; element with nested &lt;tr&gt; and &lt;td&gt; nodes arranged in 3 rows and 3 columns populated with consecutive numbers.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Specify a starting number (e.g. 1, 10, or 100) and click <strong>"Generate 3x3 Table"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Testing Console</div>
+        <div class="controls-row">
+          <input type="number" id="inputQ49Start" value="1" style="width:100px;" placeholder="Start num">
+          <button id="btnQ49" class="btn btn-primary">Generate 3x3 Table</button>
+        </div>
+        <div id="tableContainerQ49" style="margin-top:12px;"></div>
+        <div id="outQ49" class="interactive-output">Click button above to generate table...</div>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function createThreeByThreeTable(containerId, startNumber = 1) {
+  const container = document.getElementById(containerId);
+  const table = document.createElement("table");
+  table.className = "custom-table";
+  let currentNum = Number(startNumber) || 1;
+
+  for (let r = 0; r < 3; r++) {
+    const tr = document.createElement("tr");
+    for (let c = 0; c < 3; c++) {
+      const td = document.createElement("td");
+      td.textContent = currentNum++;
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+  container.innerHTML = "";
+  container.appendChild(table);
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+    <!-- Question 50 -->
+    <article class="question-card" id="q50" data-category="dom">
+      <div class="question-header">
+        <span class="question-number-badge">Q50</span>
+        <h2>50. Write a JavaScript function to validate a form (check if name, email, and password fields are filled).</h2>
+      </div>
+      <p class="answer-paragraph">
+        <span class="answer-label">Answer:</span>
+        The validation function verifies that name, email, and password fields are non-empty and well-formatted, displaying specific error messages or confirmation alerts.
+      </p>
+      <div class="interactive-guide">
+        <span class="guide-icon">💡</span>
+        <div><strong>How to test:</strong> Try submitting the form empty to see validation warnings, or fill in valid data (Name, Email, and Password of 6+ characters) and click <strong>"Validate & Submit Form"</strong>.</div>
+      </div>
+      <div class="interactive-playground">
+        <div class="playground-title">Interactive Form Validation Demo</div>
+        <form id="formQ50" class="validation-form" novalidate>
+          <div class="form-group">
+            <label for="formNameQ50">Full Name *</label>
+            <input type="text" id="formNameQ50" placeholder="e.g. Daniel NIYOMUGENGA" value="Daniel NIYOMUGENGA">
+          </div>
+          <div class="form-group">
+            <label for="formEmailQ50">Email Address *</label>
+            <input type="email" id="formEmailQ50" placeholder="e.g. daniel@ur.ac.rw" value="daniel@ur.ac.rw">
+          </div>
+          <div class="form-group">
+            <label for="formPassQ50">Password * (min 6 characters)</label>
+            <input type="password" id="formPassQ50" placeholder="Enter password..." value="securePass2026">
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top:4px;">Validate & Submit Form</button>
+          <div id="formAlertQ50" class="validation-alert"></div>
+        </form>
+      </div>
+      <details class="code-accordion">
+        <summary>View JavaScript Function</summary>
+        <div class="code-block-wrapper">
+          <pre><code>function validateForm(nameVal, emailVal, passVal) {
+  const errors = [];
+  if (!nameVal || nameVal.trim() === "") {
+    errors.push("Name field is required.");
+  }
+  if (!emailVal || emailVal.trim() === "") {
+    errors.push("Email field is required.");
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+    errors.push("Please provide a valid email address.");
+  }
+  if (!passVal || passVal.trim() === "") {
+    errors.push("Password field is required.");
+  } else if (passVal.length < 6) {
+    errors.push("Password must be at least 6 characters.");
+  }
+
+  return {
+    isValid: errors.length === 0,
+    errors: errors
+  };
+}</code></pre>
+        </div>
+      </details>
+    </article>
+
+  </main>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" class="back-to-top-btn" title="Back to top" aria-label="Back to top">↑</button>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div>
+      <strong>Individual Assignment #2</strong> — Interactive Web Development
+    </div>
+    <div>
+      Student: <strong>Daniel NIYOMUGENGA</strong> | Reg No: <strong>225034400</strong>
+    </div>
+    <div>
+      © 2026 All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
